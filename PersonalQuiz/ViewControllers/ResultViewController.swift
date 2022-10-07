@@ -29,19 +29,17 @@ class ResultViewController: UIViewController {
     
     private func getResult() -> Animal {
         var answers: [Animal: Int] = [:]
+        var maxValue = 1
+        var animal: Animal = .dog
         answersChosen.forEach {
             if let _ = answers[$0.animal] {
                 answers[$0.animal]! += 1
+                if answers[$0.animal]! > maxValue {
+                    maxValue = answers[$0.animal]!
+                    animal = $0.animal
+                }
             } else {
                 answers[$0.animal] = 1
-            }
-        }
-        var maxValue = 0
-        var animal: Animal = .dog
-        answers.forEach {
-            if $0.value > maxValue {
-                maxValue = $0.value
-                animal = $0.key
             }
         }
         return animal
