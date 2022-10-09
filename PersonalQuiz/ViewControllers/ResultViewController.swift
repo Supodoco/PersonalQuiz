@@ -32,10 +32,10 @@ class ResultViewController: UIViewController {
         var maxValue = 1
         var animal: Animal = .dog
         answersChosen.forEach {
-            if let _ = answers[$0.animal] {
-                answers[$0.animal]! += 1
-                if answers[$0.animal]! > maxValue {
-                    maxValue = answers[$0.animal]!
+            if let x = answers[$0.animal] {
+                answers[$0.animal] = x + 1
+                if x + 1  > maxValue {
+                    maxValue = x + 1
                     animal = $0.animal
                 }
             } else {
